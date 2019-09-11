@@ -1,0 +1,57 @@
+body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #30323D;
+  font-family: Monsterrat, sans-serif;
+  color: white;
+}
+
+body > header {
+  font-size: 1.5em;
+  width: 80%;
+  margin: auto;
+}
+
+body > nav {
+  height: 100%;
+}
+
+body > nav > ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  justify-items: center;
+  height: 50%;
+}
+
+body > nav > ul > li {
+  background-color: #5C80BC;
+  list-style-type: none;
+  font-size: 1.5em;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+body > nav > ul > li > a {
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+/*# sourceMappingURL=styles.css.map */
