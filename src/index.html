@@ -9,17 +9,19 @@
 </head>
 <body>
     <header>
-        <h1>Schedule for fall 2019</h1>
+        <h1><img src="../img/Linneuniversitetet_logo.png" alt="Linneuniversitetet_logo" class="logo">Schedule for fall 2019</h1>
     </header>
     <nav>
-        <ul>
-            <li><a href="#">Today</a></li>
-            <li><a href="#">This Week</a></li>
-            <li><a href="#">Next Week</a></li>
-        </ul>
+        <form class="nav">
+            <button type="submit" id="today" onclick="query = this.id">Today</button>
+            <button type="submit" id="this-week" onclick="query = this.id">This week</button>
+            <button type="submit" id="next-week" onclick="query = this.id">Next Week</button>
+            <button type="submit" id="total" onclick="query = this.id">Full Schedule</button>
+        </form>
     </nav>
     <main id="content-container" class="container">
 
     </main>
+    <script src="./app.js"></script>
 </body>
 </html>
