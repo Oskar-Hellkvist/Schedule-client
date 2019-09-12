@@ -11,7 +11,9 @@ function formSubmitted(event){
     event.preventDefault()
 
     // console.log(`${BASE_URL}${query}`)
-    getSchedule(query).then(displayData)
+    getSchedule(query).then(res => {
+        displayData(res)
+    })
 }
 
 
@@ -22,19 +24,26 @@ function getSchedule(query){
 
 
 function displayData(results){
-    results.forEach(element => {
-
-        const dayDiv = document.createElement('div')
-        const dateEl = document.createElement('h3')
-        const lecturesDiv = document.createElement('div')
-
-        dayDiv.className('day')
-        date.className('date')
-        lectures.className('lectures')
-
-        let date = Object.keys(element)
-        console.log(date)
-    })
+    if(results.length > 1){
+        let lectures = []
+        for(let i = 0; i < results.length; i++){
+            let day = results[i]
+            let dayDate = day.date
+            console.log(dayDate)
+            let keys = Object.keys(day)
+            for(let j = 1; j < keys.length; j++){
+                let lecture = keys[j]
+                let lectureTime = day[lecture].time
+                let lectureCourse = day[lecture].course
+                let lectureRoom = day[lecture].room
+                let lectureActivity = day[lecture].activity
+                let lectureGroup = day[lecture].group
+                console.log(`${lecture}-${lectureTime}-${lectureCourse}-${lectureRoom}-${lectureActivity}-${lectureGroup}`)
+            }
+        }
+    } else {
+        console.log(results)
+    }
 }
 
 
