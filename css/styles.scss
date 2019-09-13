@@ -1,52 +1,142 @@
-$main-color: #30323D;
-$element-color: #5C80BC;
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+$body-color: #17161d;
+$main-color: #222222;
+$element-focus: #41099B;
+$lnu-color: #FFF400;
+$main-border-color: #adadad;
+
+html{
+    overflow-y: scroll;
+}
 
 body{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 10px;
+    row-gap: 50px;
     justify-content: center;
     align-items: center;
-    background-color: $main-color;
-    font-family: Monsterrat, sans-serif;
-    color: white;
+    background-color: $body-color;
+    font-family: 'Oswald', sans-serif;
+    margin: 2% 0 0 0;
     >header{
         font-size: 1.5em;
-        width: 80%;
-        margin: auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        justify-content: center;
+        align-items: center;
+        column-gap: 10px;
+        >.logo{
+            width: 100px;
+            height: auto;
+            border-radius: 10%;
+            justify-self: right;
+        }
         >h1{
-            text-align: center;
+            text-align: left;
             vertical-align: middle;
             margin: 0;
-            >.logo{
-                width: 100px;
-                height: auto;
-                border-radius: 50%;
-                align-self: center;
-            }
+            position: relative;
+            color: $lnu-color;
+        }
+        &::after{
+            content: " ";
+            width: 80.5%;
+            height: 10px;
+            background-color: $lnu-color;
+            position: absolute;
+            left: 7em;
+            top: 108px;
+            border-radius: 10px;
         }
             
     }
     >nav{
-        height: 100%;
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(auto-fit, min-max(1, 1fr));
+        margin-bottom: 10px;
         >.nav{
             justify-self: center;
             >button{
-                font-size: 1em;
-                padding: 20px;
+                font-size: 1.2em;
+                font-weight: bold;
+                padding: 15px;
                 height: 50%;
-                background-color: $element-color;
+                background-color: $lnu-color;
                 border: none;
+                border-radius: 10px;
+                box-sizing: border-box;
                 &:focus{
                     outline: 0;
                 }
                 &:hover{
                     cursor: pointer;
+                    background-color: $element-focus;
+                    color: white;
                 }
             }
         }
+    }
+    >.container{
+        background-color: $main-color;
+        width: 100%;
+        grid-column: 1/3;
+        justify-self: center;
+        border-top: 1px solid $main-border-color;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        row-gap: 20px;
+        padding-bottom: 2em;
+        >.empty-border-gradient-wrapper{
+            padding: 1px;
+            background: linear-gradient(to right, $lnu-color, $main-color 50%);
+            align-self: center;
+            justify-self: center;
+            margin-top: 2rem;
+            width: 30%;
+            >.empty-day{
+                text-align: center;
+                color: $lnu-color;
+                background-color: $body-color;
+                margin: 0;
+                padding: 20px 0;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+        }
+        >.border-gradient-wrapper{
+            padding: 1px;
+            background: linear-gradient(to right, $lnu-color, $main-color 20%);
+            width: 80%;
+            margin: 2em auto 0 auto;
+            >.date-schedule{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                background-color: $main-color;
+                >.lecture{
+                    text-align: left;
+                }
+                >h3{
+                    padding: 20px;
+                    margin: 0;
+                    text-align: center;
+                    grid-column: 1/5;
+                }
+                >*{
+                    background-color: $body-color;
+                    color: $lnu-color;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    padding-left: 20px;
+                }
+            }
+        }
+    }
+    >footer{
+        padding-left: 10px;
     }
 }
