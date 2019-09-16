@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 
 $body-color: #17161d;
 $main-color: #222222;
@@ -12,71 +11,75 @@ html{
 
 body{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(600px, 1fr));
     column-gap: 10px;
     row-gap: 50px;
     justify-content: center;
     align-items: center;
     background-color: $body-color;
-    font-family: 'Oswald', sans-serif;
-    margin: 2% 0 0 0;
-    >header{
-        font-size: 1.5em;
-        width: 100%;
+    font-family: 'Monsterrat', sans-serif;
+    font-weight: normal;
+    margin: 0;
+    padding-top: 2em;
+    >#header{
         display: grid;
-        grid-template-columns: 1fr 3fr;
-        justify-content: center;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        grid-column: 1/3;
         align-items: center;
-        column-gap: 10px;
-        >.logo{
-            width: 100px;
-            height: auto;
-            border-radius: 10%;
-            justify-self: right;
+        >.head{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 10px;
+            >h1{
+                color: $lnu-color;
+                font-size: 2.8rem;
+                grid-column: 2/4;
+                font-weight: bold;
+                min-width: 600px;
+            }
+            >img{
+                height: 100px;
+                width: auto;
+                border-radius: 10px;
+                justify-self: right;
+                align-self: center;
+            }
         }
-        >h1{
-            text-align: left;
-            vertical-align: middle;
-            margin: 0;
-            position: relative;
-            color: $lnu-color;
+        >.top-nav{
+            justify-self: center;
+            >.nav{
+                display: grid; 
+                grid-template-columns: repeat(5, 1fr);
+                column-gap: 10px;
+                >.button{
+                    background-color: $lnu-color;
+                    color: black;
+                    outline: none;
+                    border: none;
+                    padding: .7em .4em;
+                    font-size: 1em;
+                    border-radius: 10px;
+                    font-weight: bolder;
+                    &:hover{
+                        background-color: $element-focus;
+                        color: white;
+                    }
+                }
+            }
         }
         &::after{
             content: " ";
-            width: 80.5%;
+            width: 80%;
             height: 10px;
+            margin: auto;
             background-color: $lnu-color;
-            position: absolute;
-            left: 7em;
-            top: 108px;
-            border-radius: 10px;
-        }
-            
-    }
-    >nav{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, min-max(1, 1fr));
-        margin-bottom: 10px;
-        >.nav{
-            justify-self: center;
-            >button{
-                font-size: 1.2em;
-                font-weight: bold;
-                padding: 15px;
-                height: 50%;
-                background-color: $lnu-color;
-                border: none;
-                border-radius: 10px;
-                box-sizing: border-box;
-                &:focus{
-                    outline: 0;
-                }
-                &:hover{
-                    cursor: pointer;
-                    background-color: $element-focus;
-                    color: white;
-                }
-            }
+            grid-column: 1/3;
+            position: relative;
+            top: -26px;
+            left: 80px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
         }
     }
     >.container{
@@ -89,7 +92,33 @@ body{
         grid-template-columns: 1fr;
         justify-content: center;
         row-gap: 20px;
-        padding-bottom: 2em;
+        padding: 2em 0;
+        >.programme{
+            color: $lnu-color;
+            text-align: center;
+            margin: 0;
+        }
+        >.programmes{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            >button{
+                background-color: $lnu-color;
+                padding: 1em;
+                font-size: 1.2em;
+                font-weight: bold;
+                color: black;
+                outline: none;
+                border: none;
+                width: 10%;
+                justify-self: center;
+                border-radius: 10px;
+                &:hover{
+                    background-color: $element-focus;
+                    color: white;
+                }
+            }
+        }
         >.empty-border-gradient-wrapper{
             padding: 1px;
             background: linear-gradient(to right, $lnu-color, $main-color 50%);
@@ -98,6 +127,7 @@ body{
             margin-top: 2rem;
             width: 30%;
             >.empty-day{
+                font-weight: 100;
                 text-align: center;
                 color: $lnu-color;
                 background-color: $body-color;
@@ -117,20 +147,32 @@ body{
                 grid-template-columns: repeat(4, 1fr);
                 gap: 20px;
                 background-color: $main-color;
-                >.lecture{
-                    text-align: left;
-                }
-                >h3{
+                >.date{
                     padding: 20px;
                     margin: 0;
                     text-align: center;
                     grid-column: 1/5;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+                >.lecture{
+                    text-align: left;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    >.lecture-num{
+                        margin: 0;
+                        padding-top: 5px;
+                    }
+                    >*{
+                        font-weight: thin;
+                        >.title{
+                        font-weight: bold;
+                        }
+                    }
                 }
                 >*{
                     background-color: $body-color;
                     color: $lnu-color;
-                    border-top-right-radius: 10px;
-                    border-bottom-right-radius: 10px;
                     padding-left: 20px;
                 }
             }
@@ -139,4 +181,97 @@ body{
     >footer{
         padding-left: 10px;
     }
+}
+
+@media only screen and (max-width: 415px){
+    body{
+        display: block;
+        >header{
+            display: block;
+            >.head{
+                display: grid;
+                grid-template-columns: 1fr;
+                justify-content: start;
+                padding: 10px;
+                >img{
+                    width: 50px;
+                    height: auto;
+                    justify-self: start;
+                }
+                >h1{
+                    margin: 0;
+                    font-size: 2em;
+                }
+                
+            }
+            >.top-nav{
+                >.nav{
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 10px;
+                    padding: 10px;
+                    >.button{
+                        padding: .5rem 0;
+                        font-size: .7rem;
+                        font-weight: bold;
+                    }
+                }
+            }
+            &::after{
+                content: "";
+                width: 0;
+                height: 0;
+            }
+        }
+        >.container{
+            >.empty-border-gradient-wrapper{
+                width: 80%;
+                >.empty-day{
+                    font-size: 1em;
+                }
+            }
+            >.border-gradient-wrapper{
+                >.date-schedule{
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    align-items: center;
+                    >.date{
+                        font-size: .8em;
+                        grid-column: 1;
+                    }
+                    >.lecture{
+                        font-size: .7em;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 321px){
+    body{
+        >header{
+            >.head{
+                >h1{
+                    font-size: 1.7em;
+                }
+            }
+            >.nav{
+                >button{
+                    padding: .3rem 0;
+                }
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar{
+    width: 9px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: $body-color;
+    border-radius: 3px;
+    border: 1px solid $lnu-color;
 }
