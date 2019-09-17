@@ -15,8 +15,8 @@
             "src": "img/Linneuniversitetet_logo.png", "use": "@now/static"
         }
     ],
-    "alias": ["managedwalrus.now.sh", "schedule"],
+    "alias": ["lnu.now.sh", "lnu-schedule"],
     "routes": [
-        {"src": "/", "dest": "/src/index.html"}
+        {"src": "/", "dest": "src/index.html"}
     ]
 }
