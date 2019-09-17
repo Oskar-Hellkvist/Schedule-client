@@ -114,6 +114,7 @@ body{
                 border-radius: 10px;
                 font-size: 1em;
                 font-weight: bolder;
+                outline: 0;
                 &:hover{
                     background-color: $element-hover;
                     color: white;

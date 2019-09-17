@@ -139,8 +139,7 @@ function displayData(results){
                 dayLecture.appendChild(group)
                 dayLecture.appendChild(course)
 
-
-            dayDiv.appendChild(dayLecture)
+                dayDiv.appendChild(dayLecture)
             }
             borderWrapper.appendChild(dayDiv)
             main.appendChild(borderWrapper)
