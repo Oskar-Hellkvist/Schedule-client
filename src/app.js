@@ -13,9 +13,12 @@ let query
 main.appendChild(programmeSelect())
 
 main.onclick = (e) => {
-    if(e.target.tagName === 'BUTTON'){
+    if(e.target.tagName === 'BUTTON' && e.target.className !== 'reload'){
         programme = e.target.id
         formSubmitted(e)
+    } else{
+        main.innerHTML = ''
+        main.appendChild(programmeSelect())
     }
 }
 
@@ -57,10 +60,22 @@ function getSchedule(query){
 function displayData(results){
     main.innerHTML = ''
 
+    const mainHead = document.createElement('div')
+    mainHead.className = 'main-header'
+
+    const reloadBtn = document.createElement('button')
+    reloadBtn.className = 'reload'
+    reloadBtn.innerHTML = 'Go back'
+
     const programmeChoice = document.createElement('h1')
     programmeChoice.className = 'programme'
     programmeChoice.innerHTML = programme
-    main.appendChild(programmeChoice)
+    
+    mainHead.appendChild(programmeChoice)
+    mainHead.appendChild(reloadBtn)
+
+    main.appendChild(mainHead)
+
 
     topNav.innerHTML = ''
     topNav.appendChild(navList())
@@ -218,8 +233,4 @@ function programmeSelect(){
     programmeForm.appendChild(button4)
     
     return programmeForm
-}
-
-function refresh(){
-    window.location.reload(false)
 }

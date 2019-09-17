@@ -1,7 +1,3 @@
-html {
-  overflow-y: scroll;
-}
-
 body {
   display: -ms-grid;
   display: grid;
@@ -47,7 +43,7 @@ body > #header > .head {
 }
 
 body > #header > .head > h1 {
-  color: #FFF400;
+  color: #fff400;
   font-size: 2.8rem;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
@@ -82,14 +78,14 @@ body > #header > .top-nav > .nav {
 }
 
 body > #header > .top-nav > .nav > .button {
-  background-color: #FFF400;
+  background-color: #fff400;
   color: black;
   outline: none;
   border: none;
   padding: .7em .4em;
   font-size: 1em;
   border-radius: 10px;
-  font-weight: bolder;
+  font-weight: normal;
 }
 
 body > #header > .top-nav > .nav > .button:hover {
@@ -102,7 +98,7 @@ body > #header::after {
   width: 80%;
   height: 10px;
   margin: auto;
-  background-color: #FFF400;
+  background-color: #fff400;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1/3;
@@ -133,10 +129,42 @@ body > .container {
   padding: 2em 0;
 }
 
-body > .container > .programme {
-  color: #FFF400;
-  text-align: center;
+body > .container > .main-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+body > .container > .main-header > .programme {
+  color: #fff400;
+  -ms-grid-column-align: left;
+      justify-self: left;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   margin: 0;
+}
+
+body > .container > .main-header > .reload {
+  background-color: #fff400;
+  color: black;
+  width: 20%;
+  border: none;
+  padding: 1em;
+  -ms-grid-column-align: right;
+      justify-self: right;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bolder;
+}
+
+body > .container > .main-header > .reload:hover {
+  background-color: #41099B;
+  color: white;
 }
 
 body > .container > .programmes {
@@ -148,7 +176,7 @@ body > .container > .programmes {
 }
 
 body > .container > .programmes > button {
-  background-color: #FFF400;
+  background-color: #fff400;
   padding: 1em;
   font-size: 1.2em;
   font-weight: bold;
@@ -168,8 +196,8 @@ body > .container > .programmes > button:hover {
 
 body > .container > .empty-border-gradient-wrapper {
   padding: 1px;
-  background: -webkit-gradient(linear, left top, right top, from(#FFF400), color-stop(50%, #222222));
-  background: linear-gradient(to right, #FFF400, #222222 50%);
+  background: -webkit-gradient(linear, left top, right top, from(#fff400), color-stop(50%, #222222));
+  background: linear-gradient(to right, #fff400, #222222 50%);
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -182,7 +210,7 @@ body > .container > .empty-border-gradient-wrapper {
 body > .container > .empty-border-gradient-wrapper > .empty-day {
   font-weight: 100;
   text-align: center;
-  color: #FFF400;
+  color: #fff400;
   background-color: #17161d;
   margin: 0;
   padding: 20px 0;
@@ -192,10 +220,10 @@ body > .container > .empty-border-gradient-wrapper > .empty-day {
 
 body > .container > .border-gradient-wrapper {
   padding: 1px;
-  background: -webkit-gradient(linear, left top, right top, from(#FFF400), color-stop(20%, #222222));
-  background: linear-gradient(to right, #FFF400, #222222 20%);
+  background: -webkit-gradient(linear, left top, right top, from(#fff400), color-stop(20%, #222222));
+  background: linear-gradient(to right, #fff400, #222222 20%);
   width: 80%;
-  margin: 2em auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 body > .container > .border-gradient-wrapper > .date-schedule {
@@ -239,7 +267,7 @@ body > .container > .border-gradient-wrapper > .date-schedule > .lecture > * > .
 
 body > .container > .border-gradient-wrapper > .date-schedule > * {
   background-color: #17161d;
-  color: #FFF400;
+  color: #fff400;
   padding-left: 20px;
 }
 
@@ -334,6 +362,6 @@ body > footer {
 ::-webkit-scrollbar-thumb {
   background-color: #17161d;
   border-radius: 3px;
-  border: 1px solid #FFF400;
+  border: 1px solid #fff400;
 }
 /*# sourceMappingURL=styles.css.map */

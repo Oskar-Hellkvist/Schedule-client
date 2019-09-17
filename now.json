@@ -1,0 +1,19 @@
+{
+    "name": "schedule",
+    "version": 2,
+    "builds": [
+        {
+            "src": "src/index.html", "use": "@now/static"
+        },
+        {
+            "src": "src/app.js", "use": "@now/static"
+        },
+        {
+            "src": "css/styles.css", "use": "@now/static"
+        },
+        {
+            "src": "img/Linneuniversitetet_logo.png", "use": "@now/static"
+        }
+    ],
+    "alias": ["managedwalrus.now.sh", "schedule"]
+}
