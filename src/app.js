@@ -176,7 +176,7 @@ function displayData(results){
                 // here we test if the group value has a number at the end and if it does it means that that lecture is for a specific group
                 // ie group 1 or group 2.
                 // if it is true i grab the group number only
-                if(/^\d+$/.test(lectureGroup.slice(-1))){
+                if(lectureGroup.length > 0){
                     lectureGroup = lectureGroup.slice(-1);
                 }
 
