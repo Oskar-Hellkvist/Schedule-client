@@ -6,7 +6,7 @@
             "src": "src/index.html", "use": "@now/static"
         },
         {
-            "src": "src/app.js", "use": "@now/static"
+            "src": "src/*.js", "use": "@now/static"
         },
         {
             "src": "css/styles.css", "use": "@now/static"
