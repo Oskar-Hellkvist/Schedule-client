@@ -27,9 +27,7 @@ main.onclick = (e) => {
     programme = e.target.id
     // run formSubmitted with the button as a parameter
     formSubmitted(e)
-  }
-  // else if the button pressed in main has the class reload (which can only be done after selecting a programme and entering the schedule)...
-  else if (e.target.className === 'reload' && e.target.tagName === 'BUTTON') {
+  } else if (e.target.className === 'reload' && e.target.tagName === 'BUTTON') {
     // ...clear main of all its content and display the programme select screen again
     main.innerHTML = ''
     main.appendChild(programmeSelect())
@@ -43,9 +41,7 @@ header.onclick = (e) => {
     // if so we assign the buttons id to the query variable declared earlier and run formSubmitted
     query = e.target.id
     formSubmitted(e)
-  }
-  // if the user clicks on a button with the class menu-btn (which only appears on the mobile versions) 
-  else if (e.target.tagName === 'BUTTON' && e.target.className === 'menu-btn') {
+  } else if (e.target.tagName === 'BUTTON' && e.target.className === 'menu-btn') {
     // here we check if the navigation menu spawned by the menu-btn button is present
     // (if the menu is present the return value will be 1 and if not, 0)
     const navLength = document.getElementsByClassName('mobile-nav').length
@@ -59,7 +55,6 @@ header.onclick = (e) => {
       topNav.innerHTML = ''
       topNav.appendChild(menuBtn())
     }
-
   }
 }
 
@@ -81,17 +76,13 @@ function formSubmitted (event) {
     getSchedule(`${programme}`).then(res => {
       displayData(res)
     })
-  }
-  // here we send both programme and query since they're both defined
-  else if (typeof (programme) !== 'undefined' && typeof (query) !== 'undefined') {
+  } else if (typeof (programme) !== 'undefined' && typeof (query) !== 'undefined') {
     // this if else statement is used when the button 'full schedule' is used since the button sets query = ''
     if (query.length === 0) {
       getSchedule(`${programme}`).then(res => {
         displayData(res)
       })
-    }
-    // else if the query string has contents then send a request as per usual with forward-slash between values
-    else {
+    } else {
       getSchedule(`${programme}/${query}`).then(res => {
         displayData(res)
       })
@@ -166,7 +157,6 @@ function displayData (results) {
 
       // loop through each lecture using the keys variable's length we declared above as reference
       for (let j = 1; j < keys.length; j++) {
-
         // here we create all the element that will hold each lecture's values such as 'room', 'time', 'course' and so on
         const lectureNum = document.createElement('h3')
         lectureNum.className = 'lecture-num'
@@ -219,10 +209,9 @@ function displayData (results) {
       borderWrapper.appendChild(dayDiv)
       main.appendChild(borderWrapper)
     }
-  }
-  // if the returned contents from the api has a length of 0 then there is no schedule for the selected query
-  // then a simple message is read from the response and appended instead
-  else {
+  } else {
+    // if the returned contents from the api has a length of 0 then there is no schedule for the selected query
+    // then a simple message is read from the response and appended instead
     const borderWrapper = document.createElement('div')
     const empty = document.createElement('h2')
     borderWrapper.className = 'empty-border-gradient-wrapper'
@@ -349,7 +338,6 @@ function mobileNavList () {
   menuUl.appendChild(menuLi5)
   nav.appendChild(menuUl)
   return nav
-
 }
 /**
  * Creates a menu where users can select which programme they want to see the schedule for.
