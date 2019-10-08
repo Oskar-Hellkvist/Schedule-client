@@ -63,7 +63,11 @@ header.onclick = (e) => {
   }
 }
 
-// here we handle sending the requests to the api
+/**
+ * Sends the appropriate data to the schedule api.
+ *
+ * @param {target} event the element that was clicked.
+ */
 function formSubmitted (event) {
   // here we prevent the form from actually submitting to just grab the data and send it to the api
   event.preventDefault()
@@ -95,15 +99,21 @@ function formSubmitted (event) {
   }
 }
 
-// this function send the correct data to the api and the api sends an array of JSON-objects back
-// when handling this function it's important to remember that it returns a promise that you need to handle 
-// (example of handling inside formSubmitted)
+/**
+ * Gets api results from the specified url.
+ *
+ * @param {string} query the url to send a request to.
+ * @returns {Object{}} api results.
+ */
 function getSchedule (query) {
   return fetch(`${BASE_URL}${query}`)
     .then(res => res.json())
 }
-
-// displayData takes care of displaying the returned information from the api and appends it to the frontend client
+/**
+ * Displays the response data from the api on the website.
+ *
+ * @param {Object{}} results the api data that will be displayed on the website.
+ */
 function displayData (results) {
   // clear html inside main in order to not append new values to an old result
   main.innerHTML = ''
@@ -124,7 +134,6 @@ function displayData (results) {
 
   main.appendChild(mainHead)
 
-
   topNav.innerHTML = ''
   // here we create different navigation structures depending on the screen width (for mobile viewing the menu will be different)
   if (window.screen.width > 415) {
@@ -136,7 +145,6 @@ function displayData (results) {
   if (results.length >= 1) {
     // iterates through each element of the array returned from the api
     for (let i = 0; i < results.length; i++) {
-
       // here we create the element holding each day and its lectures
       // border-gradient-wrapper is used to achieve gradient border around each day element
       const borderWrapper = document.createElement('div')
@@ -177,7 +185,7 @@ function displayData (results) {
         // ie group 1 or group 2.
         // if it is true i grab the group number only
         if (lectureGroup.length > 0) {
-          lectureGroup = lectureGroup.slice(-1);
+          lectureGroup = lectureGroup.slice(-1)
         }
 
         // here we create all the elements the different values will be stored in
@@ -224,7 +232,9 @@ function displayData (results) {
     main.appendChild(borderWrapper)
   }
 }
-// creates the navigation menu for desktop clients
+/**
+ * Creates a navigation menu for desktop clients.
+ */
 function navList () {
   const nav = document.createElement('form')
   nav.className = 'nav'
@@ -265,14 +275,18 @@ function navList () {
   nav.appendChild(button5)
   return nav
 }
-// creates menu button for mobile clients
+/**
+ * Creates a navigation menu button for mobile clients.
+ */
 function menuBtn () {
   const menuBtn = document.createElement('button')
   menuBtn.className = 'menu-btn'
   menuBtn.innerHTML = 'Menu'
   return menuBtn
 }
-// creates the navigation menu for mobile clients
+/**
+ * Creates a navigation menu for mobile clients.
+ */
 function mobileNavList () {
   const nav = document.createElement('div')
   nav.className = 'mobile-nav'
@@ -337,7 +351,10 @@ function mobileNavList () {
   return nav
 
 }
-// creates the programme select menu that appears in the beginning when you enter the webpage
+/**
+ * Creates a menu where users can select which programme they want to see the schedule for.
+ * This is displayed when the user connects to the website.
+ */
 function programmeSelect () {
   main.innerHTML = ''
   topNav.innerHTML = ''
