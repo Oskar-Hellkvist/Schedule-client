@@ -262,7 +262,7 @@ body > .container > .border-gradient-wrapper > .date-schedule > .class > * > .ti
 body > .container > .border-gradient-wrapper > .date-schedule > * {
   background-color: #17161d;
   color: #fff400;
-  padding: 0 20px;
+  padding: 20px;
 }
 
 body > footer {
