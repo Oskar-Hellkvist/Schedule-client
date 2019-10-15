@@ -136,7 +136,7 @@ function displayData (results) {
   if (results.length >= 1) {
     // iterates through each element of the array returned from the api
     for (let i = 0; i < results.length; i++) {
-      // here we create the element holding each day and its lectures
+      // here we create the element holding each day and its classes
       // border-gradient-wrapper is used to achieve gradient border around each day element
       const borderWrapper = document.createElement('div')
       const dayDiv = document.createElement('div')
@@ -152,58 +152,58 @@ function displayData (results) {
       dayDateHeader.innerHTML = dayDate
       dayDiv.appendChild(dayDateHeader)
 
-      // get object keys from the current object, this is used to get the amount of lectures that day holds
+      // get object keys from the current object, this is used to get the amount of classes that day holds
       const keys = Object.keys(day)
 
-      // loop through each lecture using the keys variable's length we declared above as reference
+      // loop through each class using the keys variable's length we declared above as reference
       for (let j = 1; j < keys.length; j++) {
-        // here we create all the element that will hold each lecture's values such as 'room', 'time', 'course' and so on
-        const lectureNum = document.createElement('h3')
-        lectureNum.className = 'lecture-num'
-        lectureNum.innerHTML = j
-        const dayLecture = document.createElement('div')
-        dayLecture.className = 'lecture'
+        // here we create all the element that will hold each class's values such as 'room', 'time', 'course' and so on
+        const classNum = document.createElement('h3')
+        classNum.className = 'class-num'
+        classNum.innerHTML = j
+        const dayClass = document.createElement('div')
+        dayClass.className = 'class'
 
-        const lecture = keys[j]
-        const lectureTime = day[lecture].time
-        const lectureCourse = day[lecture].course
-        const lectureRoom = day[lecture].room
-        const lectureActivity = day[lecture].activity
-        let lectureGroup = day[lecture].group
+        const currentClass = keys[j]
+        const classTime = day[currentClass].time
+        const classCourse = day[currentClass].course
+        const classRoom = day[currentClass].room
+        const classActivity = day[currentClass].activity
+        let classGroup = day[currentClass].group
 
-        // here we test if the group value has a number at the end and if it does it means that that lecture is for a specific group
+        // here we test if the group value has a number at the end and if it does it means that that class is for a specific group
         // ie group 1 or group 2.
         // if it is true i grab the group number only
-        if (lectureGroup.length > 0) {
-          lectureGroup = lectureGroup.slice(-1)
+        if (classGroup.length > 0) {
+          classGroup = classGroup.slice(-1)
         }
 
         // here we create all the elements the different values will be stored in
         const time = document.createElement('p')
         time.className = 'time'
-        time.innerHTML = `<span class="title">Tid: </span>${lectureTime}`
+        time.innerHTML = `<span class="title">Tid: </span>${classTime}`
         const course = document.createElement('p')
         course.className = 'course'
-        course.innerHTML = `<span class="title">Kurs: </span>${lectureCourse}`
+        course.innerHTML = `<span class="title">Kurs: </span>${classCourse}`
         const room = document.createElement('p')
         room.className = 'room'
-        room.innerHTML = `<span class="title">Rum: </span>${lectureRoom}`
+        room.innerHTML = `<span class="title">Rum: </span>${classRoom}`
         const activity = document.createElement('p')
         activity.className = 'activity'
-        activity.innerHTML = `<span class="title">Aktivitet: </span>${lectureActivity}`
+        activity.innerHTML = `<span class="title">Aktivitet: </span>${classActivity}`
         const group = document.createElement('p')
         group.className = 'group'
-        group.innerHTML = `<span class="title">Grupp: </span>${lectureGroup}`
+        group.innerHTML = `<span class="title">Grupp: </span>${classGroup}`
 
         // lastly we append the elements created to their parent elements to form the site structure
-        dayLecture.appendChild(lectureNum)
-        dayLecture.appendChild(time)
-        dayLecture.appendChild(activity)
-        dayLecture.appendChild(room)
-        dayLecture.appendChild(group)
-        dayLecture.appendChild(course)
+        dayClass.appendChild(classNum)
+        dayClass.appendChild(time)
+        dayClass.appendChild(activity)
+        dayClass.appendChild(room)
+        dayClass.appendChild(group)
+        dayClass.appendChild(course)
 
-        dayDiv.appendChild(dayLecture)
+        dayDiv.appendChild(dayClass)
       }
       // append everything to the border-wrapper element and then append that to main
       borderWrapper.appendChild(dayDiv)
